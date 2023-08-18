@@ -1,0 +1,109 @@
+.remove-tag {
+    background: none;
+    border: none;
+    font-size: 12px;
+    transition: 0.3s ease;
+    margin-left: 5px;
+}
+
+.remove-tag:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+.note-form {
+    height: 90vh;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    background: rgb(160, 160, 160);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+}
+
+.note-form fieldset {
+    display: none;
+}
+
+.note-form input,
+.full-content {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 0;
+}
+
+.note-form input {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 2vw;
+    padding: 1vh 0;
+}
+
+.full-content {
+    resize: none;
+    max-width: calc(100% - 2vw);
+    margin: 0 1vw;
+    height: calc(100% - 25vh);
+}
+
+hr {
+    color: black;
+    opacity: 0.25;
+}
+
+.note-buttons button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin: 0 1vh;
+    transition: 0.3s ease-in-out;
+}
+
+.note-buttons button:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
+.full-tags {
+    margin: 1vh 0;
+    max-height: 8vh;
+    overflow-y: auto;
+}
+
+.add-tags input {
+    min-width: 100%;
+    margin: 0 1vw;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.add-tags {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.add-tags button {
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid white;
+    border-radius: 7px;
+    color: inherit;
+    transition: 0.4s ease;
+}
+
+.add-tags button:hover {
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(160, 160, 160);
+    background: white;
+}
+
+input::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+ul::-webkit-scrollbar {
+    opacity: 0;
+    width: 0;
+}

@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h6 {
+    text-align: center;
+}
+
+.filter-select {
+    width: 40%;
+    margin: auto;
+}

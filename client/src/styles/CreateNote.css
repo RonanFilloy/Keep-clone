@@ -1,0 +1,105 @@
+.new-form {
+    width: 60%;
+    height: 100%;
+    margin: 5vh auto;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.6);
+}
+
+.new-form input { 
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.new-form fieldset {
+    display: none;
+}
+
+.new-title {
+    padding-bottom: 1vh;
+}
+
+.new-title input {
+    font-size: 1.2em;
+}
+
+.new-content textarea {
+    width: 100%;
+    background: none;
+    outline: none;
+    resize: none;
+    color: inherit;
+    padding: 0.5rem;
+    height: 15vh;
+    border: none;
+}
+
+.card-footer {
+    background: none;
+}
+
+.new-content textarea::-webkit-scrollbar,
+.new-tags ul::-webkit-scrollbar {
+    width: 0;
+    opacity: 0;
+}
+
+.new-tags ul {
+    margin: 1vh 0;
+    max-height: 8vh;
+    overflow-y: auto;
+}
+
+.new-tags-input {
+    margin: 2vh 0;
+    width: 80%;
+    display: block;
+}
+
+.new-tags button {
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid white;
+    border-radius: 7px;
+    color: inherit;
+    transition: 0.4s ease;
+}
+
+.new-submit {
+    max-width: 20%;
+    padding: 10px 15px;
+    margin-bottom: -20px;
+    margin-left: auto;
+    white-space: nowrap;
+    background: rgb(160, 160, 160);
+    border-radius: 7px;
+    transition: 0.4s ease;
+    border: 1px solid white;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-tags button:hover,
+.new-submit:hover {
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(160, 160, 160);
+    background: white;
+    transform: translateY(-5px);
+}
+
+.no-show {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .new-submit {
+        margin-left: 40%;
+    }
+}

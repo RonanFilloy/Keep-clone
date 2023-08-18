@@ -1,0 +1,21 @@
+.navbar {
+    width: 80%;
+    margin: 1vh auto;
+    height: 5vh;
+}
+
+.navbar h4,
+.navbar h6 {
+    transition: 0.4s ease;
+}
+
+.navbar h4:hover,
+.navbar h6:hover {
+    color: white;
+    cursor: pointer;
+}
+
+hr {
+    color: white;
+    opacity: 1;
+}
