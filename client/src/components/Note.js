@@ -4,7 +4,7 @@ import useToggle from '../hooks/useToggle';
 import '../styles/Note.css';
 
 function Note(props) {
-    const {id, title, content, archived, tags, setCurrFilter } = props;
+    const {id, title, content, archived, tags, setCurrFilter, setRefresh } = props;
 
     const [open, toggleOpen] = useToggle(false);
 
@@ -39,6 +39,7 @@ function Note(props) {
                     archived={archived}
                     tags={tags}
                     open={open}
+                    setRefresh={setRefresh}
                     toggleOpen={toggleOpen}
                     setCurrFilter={setCurrFilter}
                 />

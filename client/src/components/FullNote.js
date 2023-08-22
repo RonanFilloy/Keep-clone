@@ -8,7 +8,7 @@ import { TextField } from '@mui/material';
 import '../styles/FullNote.css';
 
 function FullNote(props) {
-    const { id, title, content, archived, tags, open, toggleOpen, setCurrFilter } = props;
+    const { id, title, content, archived, tags, open, toggleOpen, setCurrFilter, setRefresh } = props;
 
     const [noteTitle, changeNoteTitle] = useString(title);
     const [noteContent, changeNoteContent] = useString(content);
@@ -45,6 +45,7 @@ function FullNote(props) {
     const handleArchive = async () => {
         dispatch({ type: 'ARCHIVE', id: id, archived: !archived });
         setCurrFilter('All');
+        setRefresh(true);
         toggleOpen();
         try {
             const response = await fetch(`/notes/${id}/archive`, {
@@ -66,6 +67,7 @@ function FullNote(props) {
 
     const addNewTag = async () => {
         dispatch({ type: 'CHANGE TAGS', id: id, newTags: [...tags, newTag] });
+        setRefresh(true);
         try {
             const response = await fetch(`/notes/${id}/tags`, {
                 method: 'PATCH',
@@ -88,6 +90,7 @@ function FullNote(props) {
     const handleDeleteTag = (t) => async () => {
         const updatedTags = tags.filter(tag => tag !== t)
         dispatch({type: 'CHANGE TAGS', id: id, newTags: updatedTags});
+        setRefresh(true);
         try {
             const response = await fetch(`/notes/${props.id}/tags`, {
                 method: 'PATCH',

@@ -24,12 +24,9 @@ const reducer = (state, action) => {
             })
         case 'ARCHIVE':
             return state.map(note => {
-                console.log('br1')
                 if(note.id === action.id) {
-                    console.log('br2')
                     return {...note, archived: action.archived}
                 } else {
-                    console.log('br3')
                     return note
                 }
             })

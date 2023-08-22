@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Note from './Note';
+import CreateNote from './CreateNote';
 import { NotesContext } from '../contexts/NotesContext';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import '../styles/NoteList.css'
-import CreateNote from './CreateNote';
 
 function NoteList() {
     const { isArchived, noteArr, dispatch } = useContext(NotesContext);
 
     const [tagFilter, setTagFilter] = useState([]);
     const [currFilter, setCurrFilter] = useState('All');
+
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(
         function fetchNotes() {
@@ -30,12 +32,13 @@ function NoteList() {
                         setTagFilter(uniqueTags);
                         dispatch({type: 'CHOOSE', arr: archivedNotes});
                     }
-                    console.log('rendered')
+                    setRefresh(false);
+                    console.log('render')
                 })
                 .catch(error => {
                     console.error('Error fetching notes:', error);
                 });
-        }, [dispatch, isArchived]
+        }, [dispatch, isArchived, refresh]
     );
 
     const handleFilterChange = (evt) => {
@@ -76,6 +79,7 @@ function NoteList() {
                             content={n.content}
                             archived={n.archived}
                             tags={n.tags}
+                            setRefresh={setRefresh}
                             setCurrFilter={setCurrFilter}
                         />
                     ))}
