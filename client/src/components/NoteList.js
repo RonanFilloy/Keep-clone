@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, memo } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Note from './Note';
 import { NotesContext } from '../contexts/NotesContext';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,11 +30,12 @@ function NoteList() {
                         setTagFilter(uniqueTags);
                         dispatch({type: 'CHOOSE', arr: archivedNotes});
                     }
+                    console.log('rendered')
                 })
                 .catch(error => {
                     console.error('Error fetching notes:', error);
                 });
-        }, [dispatch, isArchived ]
+        }, [dispatch, isArchived]
     );
 
     const handleFilterChange = (evt) => {
@@ -84,4 +85,4 @@ function NoteList() {
     )
 }
 
-export default memo(NoteList)
+export default NoteList

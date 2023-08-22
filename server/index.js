@@ -107,7 +107,7 @@ async function startServer() {
             const values = [tagArr, id]
             await client.query(query, values)
             client.release();
-            res.json({ message: 'Tags changed successfully' });
+            res.sendStatus(200);
         } catch (error) {
             console.error('Error adding new tag', error);
             res.status(500).json({ error: 'Internal server error' });

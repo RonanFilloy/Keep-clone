@@ -21,6 +21,7 @@ function FullNote(props) {
     }
 
     const handleEdit = async () => {
+        dispatch({type: 'EDIT', id: id, title: noteTitle, content: noteContent});
         toggleOpen();
         try {
             const response = await fetch(`/notes/${id}/edit`, {
@@ -34,10 +35,10 @@ function FullNote(props) {
                 })
             });
             if(!response.ok) {
-                console.log('Failed to update note')
+                throw new Error('Failed to update note');
             }
         } catch(error) {
-            console.log('Error updating note: ', error);
+            console.error('Error updating note: ', error);
         }
     }
 
@@ -56,10 +57,10 @@ function FullNote(props) {
                 })
             });
             if(!response.ok) {
-                console.log('Failed to update note status')
+                throw new Error('Failed to update note status')
             }
         } catch(error) {
-            console.log('Error updating note status: ', error);
+            console.error('Error updating note status: ', error);
         }
     }
 
@@ -79,14 +80,14 @@ function FullNote(props) {
                 throw new Error('failed to add tag');
             }
         } catch (error) {
-            console.log('Error adding new tag: ', error);
+            console.error('Error adding new tag: ', error);
         }
         changeNewTag('');
     }
 
     const handleDeleteTag = (t) => async () => {
         const updatedTags = tags.filter(tag => tag !== t)
-        dispatch({type: 'CHANGE TAGS', newTags: updatedTags});
+        dispatch({type: 'CHANGE TAGS', id: id, newTags: updatedTags});
         try {
             const response = await fetch(`/notes/${props.id}/tags`, {
                 method: 'PATCH',
@@ -98,10 +99,10 @@ function FullNote(props) {
                 })
             });
             if (!response.ok) {
-                throw new Error('failed to update tags')
+                throw new Error('failed to update tags');
             }
         } catch (error) {
-            console.log('Error updating  tag: ', error);
+            console.error('Error updating  tag: ', error);
         }
     }
 
@@ -111,10 +112,10 @@ function FullNote(props) {
         try {
             const response = await fetch (`/notes/${id}`, {method: 'DELETE'});
             if(!response.ok) {
-                console.log('failed to delete note');
+                throw new Error('failed to delete note');
             }
         } catch(error) {
-            console.log('Error deleting note: ', error);
+            console.error('Error deleting note: ', error);
         }
     }
 
