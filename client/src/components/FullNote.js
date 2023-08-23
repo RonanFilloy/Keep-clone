@@ -113,7 +113,7 @@ function FullNote(props) {
         dispatch({type: 'DELETE', id: id});
         setCurrFilter('All');
         try {
-            const response = await fetch (`/notes/${id}`, {method: 'DELETE'});
+            const response = await fetch(`/notes/${id}`, {method: 'DELETE'});
             if(!response.ok) {
                 throw new Error('failed to delete note');
             }
@@ -166,7 +166,13 @@ function FullNote(props) {
                         onChange={handleChange(changeNewTag)}
                         inputProps={{ maxLength: 20 }}
                     />
-                    <button onClick={addNewTag}>Add</button>
+                    <button
+                        onClick={addNewTag}
+                        disabled={!newTag.trim()}
+                        className={`${!newTag.trim() ? 'muted-button' : ''}`}
+                    >
+                        Add
+                    </button>
                 </div>
                 <DialogActions className='note-buttons'>
                     <button onClick={handleArchive}>{!isArchived ? <i className='fas fa-box' /> : <i className='fas fa-box-open'/>}</button>

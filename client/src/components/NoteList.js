@@ -33,7 +33,6 @@ function NoteList() {
                         dispatch({type: 'CHOOSE', arr: archivedNotes});
                     }
                     setRefresh(false);
-                    console.log('render')
                 })
                 .catch(error => {
                     console.error('Error fetching notes:', error);

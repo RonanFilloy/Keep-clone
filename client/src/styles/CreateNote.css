@@ -98,6 +98,11 @@
     display: none;
 }
 
+.muted-button {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 @media (max-width: 700px) {
     .new-submit {
         margin-left: 40%;

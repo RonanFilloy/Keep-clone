@@ -102,6 +102,11 @@ hr {
     background: white;
 }
 
+.muted-button {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 input::-webkit-scrollbar,
 textarea::-webkit-scrollbar,
 ul::-webkit-scrollbar {

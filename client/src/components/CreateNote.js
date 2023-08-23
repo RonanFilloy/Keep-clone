@@ -87,8 +87,15 @@ function CreateNote() {
                             value={newTag}
                             onChange={handleChange(changeTag)}
                             inputProps={{ maxLength: 20 }}
+                            required
                         />
-                        <button onClick={addNewTag}>Add</button>
+                        <button 
+                            onClick={addNewTag}
+                            disabled={!newTag.trim()}
+                            className={`${!newTag.trim() ? 'muted-button' : ''}`}
+                        >
+                            Add
+                        </button>
                     </div>
                 </div>
                 <button className={`new-submit ${!newTitle ? 'no-show' : ''}`} onClick={addNewNote}>Save</button>
