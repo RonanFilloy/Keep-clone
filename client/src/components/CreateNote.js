@@ -4,7 +4,9 @@ import useString from '../hooks/useString';
 import { TextField } from '@mui/material';
 import '../styles/CreateNote.css';
 
-function CreateNote() {
+function CreateNote(props) {
+    const {setRefresh} = props;
+
     const [newTags, setNewTags] = useState([]);
 
     const [newTitle, changeTitle] = useString('');
@@ -38,7 +40,7 @@ function CreateNote() {
             archived: false,
             tags: newTags
         }
-        fetch('/notes', {
+        fetch('https://keep-server-x6uo.onrender.com/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -54,6 +56,7 @@ function CreateNote() {
             })
             .finally(() => {
                 resetValues();
+                setRefresh(true);
             })
     }
 
